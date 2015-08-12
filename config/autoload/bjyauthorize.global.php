@@ -21,7 +21,25 @@ return [
                 'role_id_field'         => 'roleId',
                 'parent_role_field'     => 'parent_id',
             ],
+
+
         ],
+
+        'resource_providers' => array(
+            'BjyAuthorize\Provider\Resource\Config' => array(
+                'hidden_object' => array(),
+            ),
+        ),
+
+        'rule_providers' => array(
+            'BjyAuthorize\Provider\Rule\Config' => array(
+                'allow' => array(
+                    array( array( 'admin' ), 'hidden_object', array( 'admin' ) ), //Show object only to admin
+                    array( array( 'admin','user' ), 'hidden_object', array( 'user' ) ), //Show object to user and admin
+                    array( array( 'admin','user','guest' ), 'hidden_object', array( 'guest' )), //Show object to guest, user, and admin
+                ),
+            ),
+        ),
 
         'guards' => [
             \BjyAuthorize\Guard\Route::class => [

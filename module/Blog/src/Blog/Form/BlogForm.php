@@ -21,6 +21,10 @@ class BlogForm extends Form
             'options' => array(
                 'label' => 'Title',
             ),
+            'attributes' => array(
+                'class' => 'form-control',
+                'required' => 'required',
+            ),
         ));
         $this->add(array(
             'name' => 'body',
@@ -28,12 +32,17 @@ class BlogForm extends Form
             'options' => array(
                 'label' => 'Blog',
             ),
+            'attributes' => array(
+                'class' => 'form-control',
+                'required' => 'required',
+            ),
         ));
         $this->addElements();
         $this->add(array(
             'name' => 'submit',
             'type' => 'Submit',
             'attributes' => array(
+                'class' => 'btn btn-success',
                 'value' => 'Go',
                 'id' => 'submitbutton',
             ),

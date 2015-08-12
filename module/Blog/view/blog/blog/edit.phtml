@@ -28,10 +28,14 @@ $bodyElement = $form->get('body');
 echo $this->formLabel($bodyElement);
 echo $this->formTextarea($bodyElement);
 
+echo '<div class="btn btn-default btn-file">';
 $fileElement = $form->get('image');
 echo $this->formLabel($fileElement);
 echo $this->formFile($fileElement);
 echo $this->formElementErrors($fileElement);
+echo '</div>';
+
+echo '<div class="clear">&nbsp;</div>'; //Break the line
 
 echo $this->formSubmit($form->get('submit'));
 echo $this->form()->closeTag();

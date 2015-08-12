@@ -5,17 +5,31 @@ $title = 'Add new blog';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
+<div class="form-group">
 <?php
 $form->setAttribute('action', $this->url('blog', array('action' => 'add')));
 $form->prepare();
 
 echo $this->form()->openTag($form);
 echo $this->formHidden($form->get('id'));
-echo $this->formRow($form->get('title'));
-echo $this->formTextarea($form->get('body'));
+$titleElement = $form->get('title');
+echo $this->formLabel($titleElement);
+echo $this->formText($titleElement);
+
+$bodyElement = $form->get('body');
+echo $this->formLabel($bodyElement);
+echo $this->formTextarea($bodyElement);
+
+echo '<div class="btn btn-default btn-file">';
 $fileElement = $form->get('image');
 echo $this->formLabel($fileElement);
 echo $this->formFile($fileElement);
+echo '</div>';
+
+echo '<div class="clear">&nbsp;</div>'; //Break the line
+
 echo $this->formElementErrors($fileElement);
 echo $this->formSubmit($form->get('submit'));
 echo $this->form()->closeTag();
+?>
+</div>
