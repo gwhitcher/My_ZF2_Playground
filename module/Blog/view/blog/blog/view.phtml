@@ -1,0 +1,8 @@
+<?php
+// module/Blog/view/blog/blog/view.phtml:
+
+$title = $blog->title;
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php echo $blog->body; ?>

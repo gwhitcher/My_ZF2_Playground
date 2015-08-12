@@ -1,0 +1,37 @@
+<?php
+// module/Album/view/blog/blog/edit.phtml:
+
+$title = 'Edit blog';
+$this->headTitle($title);
+?>
+    <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url(
+    'blog',
+    array(
+        'action' => 'edit',
+        'id'     => $this->id,
+    )
+));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+
+$titleElement = $form->get('title');
+echo $this->formLabel($titleElement);
+echo $this->formText($titleElement);
+
+$bodyElement = $form->get('body');
+echo $this->formLabel($bodyElement);
+echo $this->formTextarea($bodyElement);
+
+$fileElement = $form->get('image');
+echo $this->formLabel($fileElement);
+echo $this->formFile($fileElement);
+echo $this->formElementErrors($fileElement);
+
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
