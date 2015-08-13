@@ -40,7 +40,7 @@ return [
                 ),
             ),
         ),
-        /*
+
         'guards' => [
             \BjyAuthorize\Guard\Route::class => [
                 ['route' => 'zfcuser', 'roles' => ['user', 'admin']],
@@ -50,9 +50,9 @@ return [
                 ['route' => 'home', 'roles' => ['guest', 'user','admin']],
                 ['route' => 'about', 'roles' => ['guest', 'user','admin']],
                 ['route' => 'blog', 'roles' => ['guest', 'user', 'admin']],
-                ['route' => 'zfcadmin', 'roles' => ['admin']],
+                ['route' => 'admin', 'roles' => ['admin']],
             ],
         ],
-        */
+
     ],
 ];
