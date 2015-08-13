@@ -10,6 +10,23 @@
 return array(
     'router' => array(
         'routes' => array(
+            //Pages (needs to be loaded first or else below routes will be overwritten!!!)
+            'page' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/[:slug]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*', //Not necessary just for reference
+                        'id'     => '[0-9]+', //Not necessary just for reference
+                        'slug' => '[a-zA-Z][a-zA-Z0-9_-]*', //Necessary!!!
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'page',
+                    ),
+                ),
+            ),
+            //Homepage
             'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -20,7 +37,7 @@ return array(
                     ),
                 ),
             ),
-            //ABOUT
+            //About
             'about' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(

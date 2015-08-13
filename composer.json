@@ -1,12 +1,12 @@
 {
-    "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for ZF2",
+    "name": "gwhitcher/my-zf2-playground",
+    "description": "Skeleton Application for ZF2 with various scripts being utilized.",
     "license": "BSD-3-Clause",
     "keywords": [
         "framework",
         "zf2"
     ],
-    "homepage": "http://framework.zend.com/",
+    "homepage": "http://georgewhitcher.com/",
     "require": {
         "php": ">=5.5",
         "zendframework/zendframework": "~2.5",
@@ -15,6 +15,7 @@
         "zf-commons/zfc-user-doctrine-orm": "0.1.*",
         "bjyoungblood/bjy-authorize": ">=1.2",
         "zendframework/zftool": "dev-master",
-        "zendframework/zend-developer-tools": "dev-master"
+        "zendframework/zend-developer-tools": "dev-master",
+        "zendframework/zendpdf": "*"
     }
 }

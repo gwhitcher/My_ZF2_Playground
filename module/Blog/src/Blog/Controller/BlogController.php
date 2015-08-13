@@ -10,7 +10,6 @@ class BlogController extends AbstractActionController
 {
     protected $blogTable;
 
-
     public function indexAction()
     {
         return new ViewModel(array(

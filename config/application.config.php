@@ -15,7 +15,8 @@ return array(
         'ZfcUserDoctrineORM',
         'BjyAuthorize',
         'Blog',
-        'ZendDeveloperTools'
+        'ZendDeveloperTools',
+        'Admin'
     ),
     'module_listener_options' => array(
         'module_paths' => array(
