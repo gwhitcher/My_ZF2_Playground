@@ -1,25 +1,17 @@
 <?php
-// module/Album/view/blog/blog/edit.phtml:
+// module/Album/view/blog/blog/add.phtml:
 
-$title = 'Edit blog';
+$title = 'Add new blog';
 $this->headTitle($title);
 ?>
-    <h1><?php echo $this->escapeHtml($title); ?></h1>
-
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<div class="form-group">
 <?php
-$form = $this->form;
-$form->setAttribute('action', $this->url(
-    'blog',
-    array(
-        'action' => 'edit',
-        'id'     => $this->id,
-    )
-));
+$form->setAttribute('action', $this->url('admin_blog', array('action' => 'add')));
 $form->prepare();
 
 echo $this->form()->openTag($form);
 echo $this->formHidden($form->get('id'));
-
 $titleElement = $form->get('title');
 echo $this->formLabel($titleElement);
 echo $this->formText($titleElement);
@@ -32,10 +24,12 @@ echo '<div class="btn btn-default btn-file">';
 $fileElement = $form->get('image');
 echo $this->formLabel($fileElement);
 echo $this->formFile($fileElement);
-echo $this->formElementErrors($fileElement);
 echo '</div>';
 
 echo '<div class="clear">&nbsp;</div>'; //Break the line
 
+echo $this->formElementErrors($fileElement);
 echo $this->formSubmit($form->get('submit'));
 echo $this->form()->closeTag();
+?>
+</div>

@@ -11,7 +11,7 @@ $this->headTitle($title);
     '<?php echo $this->escapeHtml($blog->body); ?>'?
 </p>
 <?php
-$url = $this->url('blog', array(
+$url = $this->url('admin_blog', array(
     'action' => 'delete',
     'id'     => $this->id,
 ));

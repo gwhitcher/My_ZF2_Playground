@@ -1,5 +1,5 @@
 <?php
-namespace Blog\Model;
+namespace Admin\Model;
 
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
@@ -53,5 +53,50 @@ class BlogTable
             throw new \Exception("Could not find row $id");
         }
         return $row;
+    }
+
+    public function saveBlog(Blog $blog)
+    {
+        $published_date = date('Y-m-d H:i:s');
+        if(!empty($blog->image['name'])) { // Image field is not empty inserting into DB...
+            $data = array(
+                'title' => $blog->title,
+                'slug' => $this->fixForUri($blog->title),
+                'body'  => $blog->body,
+                'image'  => $blog->image['name'],
+                'published_date' => $published_date,
+            );
+        } else { // Image field is empty ignore DB insert...
+            $data = array(
+                'title' => $blog->title,
+                'slug' => $this->fixForUri($blog->title),
+                'body'  => $blog->body,
+                'published_date' => $published_date,
+            );
+        }
+
+        $id = (int) $blog->id;
+        if ($id == 0) {
+            $this->tableGateway->insert($data);
+        } else {
+            if ($this->getBlog($id)) {
+                $this->tableGateway->update($data, array('id' => $id));
+            } else {
+                throw new \Exception('Blog id does not exist');
+            }
+        }
+    }
+
+    public function deleteBlog($id)
+    {
+        $this->tableGateway->delete(array('id' => (int) $id));
+    }
+
+    public function fixForUri($string){
+        $slug = trim($string); // trim the string
+        $slug= preg_replace('/[^a-zA-Z0-9 -]/','',$slug ); // only take alphanumerical characters, but keep the spaces and dashes too...
+        $slug= str_replace(' ','-', $slug); // replace spaces by dashes
+        $slug= strtolower($slug);  // make it lowercase
+        return $slug;
     }
 }

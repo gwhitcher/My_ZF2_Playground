@@ -25,6 +25,7 @@ return [
 
         ],
 
+        //Hides objects based off role
         'resource_providers' => array(
             'BjyAuthorize\Provider\Resource\Config' => array(
                 'hidden_object' => array(),
@@ -40,7 +41,9 @@ return [
                 ),
             ),
         ),
+        //End hide of objects based on role
 
+        //Guards by route.
         'guards' => [
             \BjyAuthorize\Guard\Route::class => [
                 ['route' => 'zfcuser', 'roles' => ['user', 'admin']],
@@ -51,8 +54,8 @@ return [
                 ['route' => 'about', 'roles' => ['guest', 'user','admin']],
                 ['route' => 'blog', 'roles' => ['guest', 'user', 'admin']],
                 ['route' => 'admin', 'roles' => ['admin']],
+                ['route' => 'admin_blog', 'roles' => ['admin']],
             ],
         ],
-
     ],
 ];

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2015 at 09:04 PM
+-- Generation Time: Aug 14, 2015 at 04:05 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -52,17 +52,32 @@ INSERT INTO `album` (`id`, `artist`, `title`) VALUES
 CREATE TABLE IF NOT EXISTS `blog` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `slug` int(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `published_date` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `page`
+--
+
+CREATE TABLE IF NOT EXISTS `page` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `body` text NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `blog`
+-- Dumping data for table `page`
 --
 
-INSERT INTO `blog` (`id`, `title`, `slug`, `body`, `image`) VALUES
-(1, 'test', 0, 'test', '');
+INSERT INTO `page` (`id`, `title`, `slug`, `body`, `image`) VALUES
+(1, 'Test Page', 'test', 'test', '');
 
 -- --------------------------------------------------------
 
@@ -146,6 +161,12 @@ ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `page`
+--
+ALTER TABLE `page`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -176,6 +197,11 @@ ALTER TABLE `album`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `page`
+--
+ALTER TABLE `page`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`

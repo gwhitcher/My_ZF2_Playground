@@ -1,5 +1,5 @@
 <?php
-namespace Blog\Form;
+namespace Admin\Form;
 
 use Zend\Form\Element;
 use Zend\Form\Form;
@@ -37,7 +37,9 @@ class BlogForm extends Form
                 'required' => 'required',
             ),
         ));
+
         $this->addElements();
+
         $this->add(array(
             'name' => 'submit',
             'type' => 'Submit',

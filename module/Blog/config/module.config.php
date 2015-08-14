@@ -9,7 +9,6 @@ return array(
     // The following section is new and should be added to your file
     'router' => array(
         'routes' => array(
-            /*
             'blog' => array(
                 'type'    => 'segment',
                 'options' => array(
@@ -20,18 +19,6 @@ return array(
                     ),
                     'defaults' => array(
                         'controller' => 'Blog\Controller\Blog',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-            */
-            //Homepage
-            'admin' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/admin',
-                    'defaults' => array(
-                        'controller' => 'Admin\Controller\Admin',
                         'action'     => 'index',
                     ),
                 ),

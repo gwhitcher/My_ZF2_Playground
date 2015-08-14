@@ -3,6 +3,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Admin' => 'Admin\Controller\AdminController',
+            'Admin\Controller\Blog' => 'Admin\Controller\BlogController',
         ),
     ),
 
@@ -15,6 +16,20 @@ return array(
                     'route'    => '/admin',
                     'defaults' => array(
                         'controller' => 'Admin\Controller\Admin',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'admin_blog' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/admin/blog[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\Blog',
                         'action'     => 'index',
                     ),
                 ),

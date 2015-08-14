@@ -6,6 +6,11 @@ use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
 use Zend\ModuleManager\ModuleManager;
 
+use Admin\Model\Blog;
+use Admin\Model\BlogTable;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
+
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface
 {
     //Sets admin template for entire module
@@ -39,10 +44,9 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
     // Add this method:
     public function getServiceConfig()
     {
-        /*
         return array(
             'factories' => array(
-                'Blog\Model\BlogTable' =>  function($sm) {
+                'Admin\Model\BlogTable' =>  function($sm) {
                     $tableGateway = $sm->get('BlogTableGateway');
                     $table = new BlogTable($tableGateway);
                     return $table;
@@ -55,7 +59,6 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
                 },
             ),
         );
-        */
     }
 
 }
