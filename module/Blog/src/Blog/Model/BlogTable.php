@@ -44,13 +44,22 @@ class BlogTable
         return $resultSet;
     }
 
-    public function getBlog($id)
+    public function getBlog($slug)
     {
+        /* Get by ID (change identifier above)
         $id  = (int) $id;
         $rowset = $this->tableGateway->select(array('id' => $id));
         $row = $rowset->current();
         if (!$row) {
             throw new \Exception("Could not find row $id");
+        }
+        return $row;
+        */
+        //Get by Slug
+        $rowset = $this->tableGateway->select(array('slug' => $slug));
+        $row = $rowset->current();
+        if (!$row) {
+            throw new \Exception("Could not find row $slug");
         }
         return $row;
     }

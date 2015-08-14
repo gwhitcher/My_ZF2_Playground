@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2015 at 04:05 PM
+-- Generation Time: Aug 14, 2015 at 04:30 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -56,7 +56,15 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `body` text NOT NULL,
   `image` varchar(255) NOT NULL,
   `published_date` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `title`, `slug`, `body`, `image`, `published_date`) VALUES
+(1, 'Test', 'test', 'test', '', '2015-08-14 16:15:02'),
+(2, 'Test', 'test2', 'test', '', '2015-08-14 16:15:02');
 
 -- --------------------------------------------------------
 
@@ -158,7 +166,7 @@ ALTER TABLE `album`
 -- Indexes for table `blog`
 --
 ALTER TABLE `blog`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `slug` (`slug`);
 
 --
 -- Indexes for table `page`
@@ -197,7 +205,7 @@ ALTER TABLE `album`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `page`
 --

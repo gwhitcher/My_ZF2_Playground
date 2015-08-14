@@ -12,10 +12,11 @@ return array(
             'blog' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/blog[/:action][/:id]',
+                    'route'    => '/blog[/:action][/:slug]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
+                        'slug' => '[a-zA-Z][a-zA-Z0-9_-]*',
                     ),
                     'defaults' => array(
                         'controller' => 'Blog\Controller\Blog',

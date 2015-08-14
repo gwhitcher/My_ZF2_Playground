@@ -55,7 +55,6 @@ class IndexController extends AbstractActionController
             return $this->notFoundAction();
         }
 
-
         return array(
             'page' => $page,
         );
