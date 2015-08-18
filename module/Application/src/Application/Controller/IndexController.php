@@ -31,9 +31,10 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-        //Flash Message (change setNamespace to error, info, default, or success)
-        $this->flashMessenger()->setNamespace('error')->addMessage('Your message');
-        return new ViewModel();
+        //Gets info from config.  Works in controller only, to pass variable to view use the below.
+        $config = $this->getServiceLocator()->get('Config');
+        $title = $config['config']['title'];
+        return new ViewModel(array('site_title' => $title));
     }
 
     public function aboutAction()
@@ -52,12 +53,13 @@ class IndexController extends AbstractActionController
         $pdf->pages[0]->setFont( Font::fontWithName( Font::FONT_HELVETICA ), 24 );
         $pdf->pages[0]->drawText( 'Hello world!', 240, 400 );
 
+        //Check zend root for below file.
         $pdf->save('example.pdf');
 
         //Flash Message (change setNamespace to error, info, default, or success)
         $this->flashMessenger()->setNamespace('success')->addMessage('PDF Created');
 
-        //Check zend root for above file.
+        //Redirect home
         return $this->redirect()->toRoute('home');
     }
 
@@ -104,16 +106,6 @@ class IndexController extends AbstractActionController
 
     public function jsonAction()
     {
-        /*
-        // Accept JSON
-        $result = new JsonModel(array(
-            'some_parameter' => 'some value',
-            'success'=>true,
-        ));
-
-        return $result;
-        */
-
         //Return JSON
         $matches[] = array('distance' => 10, 'playground' => 'a', 'id' => 1);
         $matches[] = array('distance' => 20, 'playground' => 'b', 'id' => 2);
