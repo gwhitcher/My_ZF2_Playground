@@ -48,6 +48,61 @@ return array(
                     ),
                 ),
             ),
+            //RSS
+            'rss' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/rss',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'rss',
+                    ),
+                ),
+            ),
+            //XML
+            'xml' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/xml',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'xml',
+                    ),
+                ),
+            ),
+            //JSON
+            'json' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/json',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'json',
+                    ),
+                ),
+            ),
+            //AJAX
+            'ajax' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/ajax',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'ajax',
+                    ),
+                ),
+            ),
+            //PDF
+            'pdf' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/pdf',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'pdf',
+                    ),
+                ),
+            ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -126,5 +181,10 @@ return array(
             'routes' => array(
             ),
         ),
+    ),
+    // Enable JSON
+    'strategies' => array(
+        'ViewJsonStrategy',
+        'ViewFeedStrategy',
     ),
 );

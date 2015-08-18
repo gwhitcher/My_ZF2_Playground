@@ -1,0 +1,8 @@
+<?php if ($success): ?>
+<?php foreach ($results as $row):?>
+ID: <?php echo $row['id'];?>&nbsp;
+Playground: <?php echo $row['playground'];?>&nbsp;
+Distance: <?php echo $row['distance'];?>m
+<br />
+<?php endforeach; ?>
+<?php endif; ?>

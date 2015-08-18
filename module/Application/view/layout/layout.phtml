@@ -43,11 +43,38 @@
                         <li><a href="<?php echo $this->url('home') ?>blog"><?php echo $this->translate('Blog') ?></a></li>
                         <li><a href="<?php echo $this->url('home') ?>user/login"><?php echo $this->translate('Login') ?></a></li>
                         <li><a href="<?php echo $this->url('home') ?>admin"><?php echo $this->translate('Administration') ?></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Miscellaneous<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Miscellaneous</li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="<?php echo $this->url('home') ?>rss" target="_blank"><?php echo $this->translate('RSS') ?></a></li>
+                                <li><a href="<?php echo $this->url('home') ?>xml" target="_blank"><?php echo $this->translate('XML') ?></a></li>
+                                <li><a href="<?php echo $this->url('home') ?>json" target="_blank"><?php echo $this->translate('JSON') ?></a></li>
+                                <li><a href="<?php echo $this->url('home') ?>ajax" target="_blank"><?php echo $this->translate('AJAX') ?></a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
         <div class="container">
+            <?php
+            /* Flash Message */
+            $flash = $this->flashMessenger();
+            $flash->setMessageOpenFormat('<div%s>
+     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+         &times;
+     </button>
+     <ul><li>')
+                ->setMessageSeparatorString('</li><li>')
+                ->setMessageCloseString('</li></ul></div>');
+
+            echo $flash->render('error',   array('alert', 'alert-dismissible', 'alert-danger'));
+            echo $flash->render('info',    array('alert', 'alert-dismissible', 'alert-info'));
+            echo $flash->render('default', array('alert', 'alert-dismissible', 'alert-warning'));
+            echo $flash->render('success', array('alert', 'alert-dismissible', 'alert-success'));
+            ?>
             <?php echo $this->content; ?>
             <hr>
             <footer>
